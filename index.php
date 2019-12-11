@@ -69,7 +69,7 @@
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="#"><i class="fa fa-home fa-fw"></i> หน้าหลัก</a></li>
+            <li><a href="login.php"><i class="fa fa-home fa-fw"></i> หน้าหลัก</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -93,6 +93,11 @@
                     <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-shopping-cart fa-fa"></i> (0)
+                </a>
             </li>
         </ul>
 
