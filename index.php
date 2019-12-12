@@ -122,13 +122,13 @@
                         <a href="index.php?menu=allcars" class="active"><i class="fa fa-car fa-fw"></i> รถทุกประเภท</a>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-car fa-fw"></i> รถเก๋ง</a>
+                        <a href="index.php?menu=allcars&type=1" class="active"><i class="fa fa-car fa-fw"></i> รถเก๋ง</a>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-truck fa-fw"></i> รถกระบะ</a>
+                        <a href="index.php?menu=allcars&type=2" class="active"><i class="fa fa-truck fa-fw"></i> รถกระบะ</a>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-truck fa-fw"></i> รถตู้</a>
+                        <a href="index.php?menu=allcars&type=3" class="active"><i class="fa fa-truck fa-fw"></i> รถตู้</a>
                     </li>
                 </ul>
             </div>

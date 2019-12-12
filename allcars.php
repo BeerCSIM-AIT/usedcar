@@ -1,6 +1,13 @@
 <?php
     include("connect.php");
-    $sql = "SELECT * FROM car ORDER BY id";
+    $where = "";
+    $type = "";
+    if(isset($_GET['type']))
+    {
+        $where="WHERE carType=" . $_GET['type'];
+        $type="Type: " . $_GET['type'];
+    }
+    $sql = "SELECT * FROM car $where ORDER BY id";
     $result = $conn->query($sql);
     if(!$result){
         echo "Error: " . $conn->error;
@@ -8,7 +15,7 @@
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">All Cars</h1>
+        <h1 class="page-header">All Cars, <?php echo $type ?></h1>
     </div>
 </div>
 <!-- ... Your content goes here ... -->
@@ -40,10 +47,10 @@
                         <strong>Price: <?php echo $car->price?></strong>
                     </p>
                     <p>
-                        <a href="editcar.php?pid=<?php echo $car->id?>" class="btn btn-warning">
+                        <a href="editcar.php?id=<?php echo $car->id?>" class="btn btn-warning">
                             <i class="glyphicon glyphicon-pencil"></i> Edit
                         </a>
-                        <a href="deletecar.php?pid=<?php echo $car->id?>" class="btn btn-danger lnkDelete" id="">
+                        <a href="deletecar.php?id=<?php echo $car->id?>" class="btn btn-danger lnkDelete" id="">
                             <i class="glyphicon glyphicon-trash"></i> Delete
                         </a>
                     </p>
@@ -55,3 +62,10 @@
         }
     ?>
 </div>
+<script>
+        $(document).ready(function(){
+            $(".lnkDelete").click(function(){
+                return confirm("Confirm delete?");        
+            });
+        });
+</script>
