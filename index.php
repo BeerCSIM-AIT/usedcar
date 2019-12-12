@@ -74,12 +74,19 @@
 
         <!-- Top Navigation: Right Menu -->
         <ul class="nav navbar-right navbar-top-links">
-            <li>
-                <a href="">
-                    <i class="fa fa-lock fa-fw"></i> เข้าสู่ระบบ
-                </a>
-            </li>
-            
+            <?php
+            if(!isset($_SESSION['id'])){
+            ?>
+                <li>
+                    <a href="login.php">
+                        <i class="fa fa-lock fa-fw"></i> เข้าสู่ระบบ
+                    </a>
+                </li>
+            <?php
+            }
+            else{
+            ?>
+
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i> Phakpoom Ittirattanakomon <b class="caret"></b>
@@ -96,9 +103,12 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-shopping-cart fa-fa"></i> (0)
+                    <i class="fa fa-shopping-cart fa-fw"></i> (0)
                 </a>
             </li>
+            <?php
+            }
+            ?>
         </ul>
 
         <!-- Sidebar -->
@@ -109,7 +119,7 @@
                         <a href="#s">รถยนต์ของเรา</a>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-car fa-fw"></i> รถทุกประเภท</a>
+                        <a href="index.php?menu=allcars" class="active"><i class="fa fa-car fa-fw"></i> รถทุกประเภท</a>
                     </li>
                     <li>
                         <a href="#" class="active"><i class="fa fa-car fa-fw"></i> รถเก๋ง</a>
@@ -128,7 +138,27 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <?php
-                include("main.php");
+                $menu="";
+                $page="";
+                if(isset($_GET['menu'])){
+                    $menu = $_GET['menu'];
+                }
+                switch($menu){
+                    case "allcars":{
+                        $page="allcars.php";
+                        break;
+                    }
+                    case "showcars":{
+                        $page="showcars.php";
+                        break;
+                    }
+                    case "postcar":{
+                        $page="postcar.php";
+                        break;
+                    }
+                    default: $page = "main.php";
+                }
+                include($page);
             ?>           
 
         </div>
