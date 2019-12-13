@@ -34,7 +34,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <div class="thumbnail">
                 <div style="height:150px;">
-                    <a href="cardetail.php?pid=<?php echo $car->id; ?>">
+                    <a href="#">
                         <img src="images/cars/<?php echo $car->carpic;?>" style="height:100%" alt="">
                     </a>
                 </div>                
@@ -46,14 +46,20 @@
                     <p>
                         <strong>Price: <?php echo $car->price?></strong>
                     </p>
+                    <?php
+                    if(isset($_SESSION['id'])){
+                    ?>
                     <p>
-                        <a href="editcar.php?id=<?php echo $car->id?>" class="btn btn-warning">
+                        <a href="index.php?menu=editcar&id=<?php echo $car->id?>" class="btn btn-warning">
                             <i class="glyphicon glyphicon-pencil"></i> Edit
                         </a>
                         <a href="deletecar.php?id=<?php echo $car->id?>" class="btn btn-danger lnkDelete" id="">
                             <i class="glyphicon glyphicon-trash"></i> Delete
                         </a>
                     </p>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>    
